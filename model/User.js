@@ -1,5 +1,8 @@
 import DataLoader from 'dataloader';
 import findByIds from 'mongo-find-by-ids';
+import bcrypt from 'bcrypt';
+
+const SALT_ROUNDS = 10;
 
 export default class User {
   constructor(context) {
@@ -41,7 +44,10 @@ export default class User {
   }
 
   async insert(doc) {
+    const { password } = doc;
+    const hash = await bcrypt.hash(password, SALT_ROUNDS);
     const docToInsert = Object.assign({}, doc, {
+      hash,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
