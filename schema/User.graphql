@@ -1,0 +1,37 @@
+type User {
+  id: ObjID!
+  name: String!
+  email: String!
+  customers(lastCreatedAt: Float, limit: Int): [Customer!]
+  managers(lastCreatedAt: Float, limit: Int): [User!]
+  subordinates(lastCreatedAt: Float, limit: Int): [User!]
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+extend type Query {
+  users(lastCreatedAt: Float, limit: Int): [User!]
+  user(id: ObjID!): User
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  name: String!
+  email: String!
+}
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(id: ObjID!, input: UpdateUserInput!): User
+  removeUser(id: ObjID!): Boolean
+}
+
+extend type Subscription {
+  userCreated: User
+  userUpdated: User
+  userRemoved: ObjID
+}

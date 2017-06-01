@@ -23,3 +23,18 @@ resolvers.ObjID = new GraphQLScalarType({
 });
 
 export default resolvers;
+
+import channelResolvers from './Channel';
+merge(resolvers, channelResolvers);
+
+import amazonResolvers from './Amazon';
+merge(resolvers, amazonResolvers);
+
+import flipkartResolvers from './Flipkart';
+merge(resolvers, flipkartResolvers);
+
+import customerResolvers from './Customer';
+merge(resolvers, customerResolvers);
+
+import userResolvers from './User';
+merge(resolvers, userResolvers);

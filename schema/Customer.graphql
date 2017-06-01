@@ -1,0 +1,35 @@
+type Customer {
+  id: ObjID!
+  name: String!
+  email: String!
+  channels(lastCreatedAt: Float, limit: Int): [Channel]
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+extend type Query {
+  customers(lastCreatedAt: Float, limit: Int): [Customer!]
+  customer(id: ObjID!): Customer
+}
+
+input CreateCustomerInput {
+  name: String!
+  email: String!
+}
+
+input UpdateCustomerInput {
+  name: String!
+  email: String!
+}
+
+extend type Mutation {
+  createCustomer(input: CreateCustomerInput!): Customer
+  updateCustomer(id: ObjID!, input: UpdateCustomerInput!): Customer
+  removeCustomer(id: ObjID!): Boolean
+}
+
+extend type Subscription {
+  customerCreated: Customer
+  customerUpdated: Customer
+  customerRemoved: ObjID
+}

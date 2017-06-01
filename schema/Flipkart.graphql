@@ -1,0 +1,55 @@
+type Flipkart implements Channel {
+  id: ObjID!
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  applicationId: String!
+  applicationSecret: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+extend type Query {
+  flipkarts(lastCreatedAt: Float, limit: Int): [Flipkart!]
+  flipkart(id: ObjID!): Flipkart
+}
+
+input CreateFlipkartInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  applicationId: String!
+  applicationSecret: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+input UpdateFlipkartInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  applicationId: String!
+  applicationSecret: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+extend type Mutation {
+  createFlipkart(input: CreateFlipkartInput!): Flipkart
+  updateFlipkart(id: ObjID!, input: UpdateFlipkartInput!): Flipkart
+  removeFlipkart(id: ObjID!): Boolean
+}
+
+extend type Subscription {
+  flipkartCreated: Flipkart
+  flipkartUpdated: Flipkart
+  flipkartRemoved: ObjID
+}

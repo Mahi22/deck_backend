@@ -1,0 +1,11 @@
+type Flipkart implements Channel {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  applicationId: String!
+  applicationSecret: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}

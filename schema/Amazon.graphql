@@ -1,0 +1,61 @@
+type Amazon implements Channel {
+  id: ObjID!
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  sellerId: String!
+  marketplaceId: String!
+  awsAccessKeyId: String!
+  secretKey: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+extend type Query {
+  amazons(lastCreatedAt: Float, limit: Int): [Amazon!]
+  amazon(id: ObjID!): Amazon
+}
+
+input CreateAmazonInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  sellerId: String!
+  marketplaceId: String!
+  awsAccessKeyId: String!
+  secretKey: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+input UpdateAmazonInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  sellerId: String!
+  marketplaceId: String!
+  awsAccessKeyId: String!
+  secretKey: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+extend type Mutation {
+  createAmazon(input: CreateAmazonInput!): Amazon
+  updateAmazon(id: ObjID!, input: UpdateAmazonInput!): Amazon
+  removeAmazon(id: ObjID!): Boolean
+}
+
+extend type Subscription {
+  amazonCreated: Amazon
+  amazonUpdated: Amazon
+  amazonRemoved: ObjID
+}

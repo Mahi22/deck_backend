@@ -1,0 +1,9 @@
+type User {
+  name: String!
+  email: String!
+
+  customers: [Customer!] @hasMany(as:"handler")
+
+  managers: [User!] @belongsToMany
+  subordinates: [User!] @hasAndBelongsToMany(as:"managers")
+}

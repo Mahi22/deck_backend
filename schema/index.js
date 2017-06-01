@@ -22,3 +22,13 @@ const typeDefs = [`
 `];
 
 export default typeDefs;
+
+typeDefs.push(requireGraphQL('./Channel.graphql'));
+
+typeDefs.push(requireGraphQL('./Amazon.graphql'));
+
+typeDefs.push(requireGraphQL('./Flipkart.graphql'));
+
+typeDefs.push(requireGraphQL('./Customer.graphql'));
+
+typeDefs.push(requireGraphQL('./User.graphql'));

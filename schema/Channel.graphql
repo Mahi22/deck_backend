@@ -1,0 +1,49 @@
+interface Channel {
+  id: ObjID!
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  usernameOnPanel: String
+  passwordOnPanel: String
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+extend type Query {
+  channels(lastCreatedAt: Float, limit: Int): [Channel!]
+  channel(id: ObjID!): Channel
+}
+
+input CreateChannelInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+input UpdateChannelInput {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  usernameOnPanel: String
+  passwordOnPanel: String
+}
+
+extend type Mutation {
+  createChannel(input: CreateChannelInput!): Channel
+  updateChannel(id: ObjID!, input: UpdateChannelInput!): Channel
+  removeChannel(id: ObjID!): Boolean
+}
+
+extend type Subscription {
+  channelCreated: Channel
+  channelUpdated: Channel
+  channelRemoved: ObjID
+}

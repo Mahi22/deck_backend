@@ -1,0 +1,13 @@
+type Amazon implements Channel {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  sellerId: String!
+  marketplaceId: String!
+  awsAccessKeyId: String!
+  secretKey: String!
+  usernameOnPanel: String
+  passwordOnPanel: String
+}

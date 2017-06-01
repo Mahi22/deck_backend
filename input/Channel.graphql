@@ -1,0 +1,9 @@
+interface Channel {
+  name: String!
+  ledgerName: String
+  billingParty: String
+  sync: Boolean
+  autoVerifyOrders: Boolean
+  usernameOnPanel: String
+  passwordOnPanel: String
+}

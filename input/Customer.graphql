@@ -1,0 +1,5 @@
+type Customer {
+  name: String!
+  email: String!
+  channels: [Channel] @hasMany(as:"customer")
+}
