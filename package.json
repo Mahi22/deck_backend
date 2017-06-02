@@ -50,6 +50,7 @@
     "nodeify": "^1.0.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
-    "subscriptions-transport-ws": "0.2.6"
+    "subscriptions-transport-ws": "0.2.6",
+    "xml2js": "^0.4.17"
   }
 }

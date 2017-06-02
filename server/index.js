@@ -13,6 +13,11 @@ import resolvers from '../resolvers';
 import addModelsToContext from '../model';
 import authenticate from './authenticate';
 
+// Importing Amazon libraries here
+import { AmazonMwsClient, test } from '../amazon';
+import { GetServiceStatus, ListOrders } from '../amazon/orders';
+
+
 import { pubsub, subscriptionManager } from './subscriptions';
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
@@ -64,6 +69,27 @@ async function startServer() {
   app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
   }));
+
+  app.use('/test', (req, res, next) => {
+    const client = new AmazonMwsClient('AKIAJ3FBOQI6KYTSKS3A','LJ0gAX0dCzmgSBMxqUqrHPDlMJxrMidDXKRfuqDI','A2I5E2O93UZ69K', 'A21TJRUUN4KGV',{});
+    // console.log(test.call({upload:false, path:'/somepath', },'action',{},'callback'));
+    const listOrders = new ListOrders();
+    listOrders.set('MarketplaceId', 'A21TJRUUN4KGV');
+    listOrders.set('CreatedAfter', new Date(2017,4,21));
+
+    client.invoke(listOrders, function(data) {
+      if (data['ErrorResponse']) {
+        console.log(data['ErrorResponse']['Error']);
+      } else {
+        console.log(JSON.stringify(data));
+      }
+
+      console.log(data);
+    });
+    res.send('Nice');
+  });
+
+
 
   app.listen(PORT, () => console.log(
     `API Server is now running on http://localhost:${PORT}`
