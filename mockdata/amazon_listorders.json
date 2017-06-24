@@ -1,0 +1,539 @@
+/*
+* Field structure - defination for Orders
+* res:Object --> $: Object, ListOrdersResult: Object
+* $: Object --> xmls:"URI of the request response"
+* ListOrdersResult:[Object] --> Orders: [Object], CreatedBefore: [Date_String]
+* Orders:[Object] --> Order: [Object]
+* Order:[Object] --> {
+    AmazonOrderId[0]:  "ID_String"
+    BuyerEmail[0]: "Email_String"
+    BuyerName[0]: "String"
+    EarliestDeliveryDate[0]: "Date_String"  #
+    EarliestShipDate[0]: "Date_String"
+    FulfillmentChannel[0]: "FulfillmentChannel"
+    IsBusinessOrder[0]: "Boolean" #
+    IsPremiumOrder[0]: "Boolean" #
+    IsPrime[0]: "Boolean"
+    IsReplacementOrder[0]: "Boolean" !
+    LastUpdateDate[0]: "Date_String" #
+    LatestDeliveryDate[0]: "Date_String"  ! // Flipkart SLA breach
+    LatestShipDate[0]: "Date_String"
+    MarketplaceId[0]: "MakertplaceId" #
+    NumberOfItemsShipped[0]: "Number_String" !
+    NumberOfItemsUnshipped[0]: "Number_String" !
+    OrderStatus[0]: "OrderStatus"
+    OrderTotal: "Object" ! --> {
+      CurrencyCode[0]: "CurrencyCode",
+      Amount[0]: "Float_String"
+    }
+    OrderType[0]: "String"
+    PaymentMethod[0]: "String" !
+    PurchaseDate[0]: "Date_string"
+    SalesChannel[0]: "String"
+    ShippingAddress: "Object" ! --> {
+      AddressLine1[0]: "String",
+      AddressLine2[0]: "String",
+      City[0]: "String",
+      CountryCode[0]: "String",
+      Name[0]: "String",
+      Phone[0]: "String",
+      PostalCode[0]: "String",
+      StateOrRegion[0]: "String"
+    }
+    TFMShipmentStatus: "STATUS_String" !
+* }
+*
+*/
+
+{
+    "ListOrdersResponse": {
+        "$": {
+            "xmlns": "https://mws.amazonservices.com/Orders/2013-09-01"
+        },
+        "ListOrdersResult": [
+            {
+                "Orders": [
+                    {
+                        "Order": [
+                            {
+                                "LatestShipDate": [
+                                    "2017-06-20T18:29:59Z"
+                                ],
+                                "OrderType": [
+                                    "StandardOrder"
+                                ],
+                                "PurchaseDate": [
+                                    "2017-06-16T22:07:09Z"
+                                ],
+                                "PaymentExecutionDetail": [
+                                    {
+                                        "PaymentExecutionDetailItem": [
+                                            {
+                                                "PaymentMethod": [
+                                                    "COD"
+                                                ],
+                                                "Payment": [
+                                                    {
+                                                        "CurrencyCode": [
+                                                            "INR"
+                                                        ],
+                                                        "Amount": [
+                                                            "549.00"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "BuyerEmail": [
+                                    "x8fxrbxmp3d5kx6@marketplace.amazon.in"
+                                ],
+                                "AmazonOrderId": [
+                                    "171-6876207-8304354"
+                                ],
+                                "LastUpdateDate": [
+                                    "2017-06-17T10:13:51Z"
+                                ],
+                                "IsReplacementOrder": [
+                                    "false"
+                                ],
+                                "ShipServiceLevel": [
+                                    "Std IN EZ National COD"
+                                ],
+                                "NumberOfItemsShipped": [
+                                    "1"
+                                ],
+                                "OrderStatus": [
+                                    "Shipped"
+                                ],
+                                "SalesChannel": [
+                                    "Amazon.in"
+                                ],
+                                "ShippedByAmazonTFM": [
+                                    "false"
+                                ],
+                                "IsBusinessOrder": [
+                                    "false"
+                                ],
+                                "LatestDeliveryDate": [
+                                    "2017-06-23T18:29:59Z"
+                                ],
+                                "NumberOfItemsUnshipped": [
+                                    "0"
+                                ],
+                                "PaymentMethodDetails": [
+                                    {
+                                        "PaymentMethodDetail": [
+                                            "CashOnDelivery"
+                                        ]
+                                    }
+                                ],
+                                "BuyerName": [
+                                    "gourav"
+                                ],
+                                "EarliestDeliveryDate": [
+                                    "2017-06-21T18:30:00Z"
+                                ],
+                                "OrderTotal": [
+                                    {
+                                        "CurrencyCode": [
+                                            "INR"
+                                        ],
+                                        "Amount": [
+                                            "549.00"
+                                        ]
+                                    }
+                                ],
+                                "IsPremiumOrder": [
+                                    "false"
+                                ],
+                                "EarliestShipDate": [
+                                    "2017-06-18T18:30:00Z"
+                                ],
+                                "MarketplaceId": [
+                                    "A21TJRUUN4KGV"
+                                ],
+                                "FulfillmentChannel": [
+                                    "MFN"
+                                ],
+                                "TFMShipmentStatus": [
+                                    "PickedUp"
+                                ],
+                                "PaymentMethod": [
+                                    "COD"
+                                ],
+                                "ShippingAddress": [
+                                    {
+                                        "StateOrRegion": [
+                                            "PUDUCHERRY"
+                                        ],
+                                        "City": [
+                                            "PUDUCHERRY"
+                                        ],
+                                        "Phone": [
+                                            "8795434774"
+                                        ],
+                                        "CountryCode": [
+                                            "IN"
+                                        ],
+                                        "PostalCode": [
+                                            "605009"
+                                        ],
+                                        "Name": [
+                                            "Gaorav Dwivedi"
+                                        ],
+                                        "AddressLine1": [
+                                            "Room no.09,B-BLOCK BOYS HOSTEL,  IGMC & RI , PUDUCHERRY"
+                                        ],
+                                        "AddressLine2": [
+                                            "Kathirmam"
+                                        ]
+                                    }
+                                ],
+                                "IsPrime": [
+                                    "false"
+                                ],
+                                "ShipmentServiceLevelCategory": [
+                                    "Standard"
+                                ]
+                            },
+                            {
+                                "LatestShipDate": [
+                                    "2017-06-20T18:29:59Z"
+                                ],
+                                "OrderType": [
+                                    "StandardOrder"
+                                ],
+                                "PurchaseDate": [
+                                    "2017-06-17T08:12:59Z"
+                                ],
+                                "AmazonOrderId": [
+                                    "171-1274273-3969142"
+                                ],
+                                "LastUpdateDate": [
+                                    "2017-06-18T08:29:27Z"
+                                ],
+                                "IsReplacementOrder": [
+                                    "false"
+                                ],
+                                "ShipServiceLevel": [
+                                    "Std IN EZ Local COD"
+                                ],
+                                "NumberOfItemsShipped": [
+                                    "0"
+                                ],
+                                "OrderStatus": [
+                                    "Canceled"
+                                ],
+                                "SalesChannel": [
+                                    "Amazon.in"
+                                ],
+                                "IsBusinessOrder": [
+                                    "false"
+                                ],
+                                "NumberOfItemsUnshipped": [
+                                    "0"
+                                ],
+                                "PaymentMethodDetails": [
+                                    {
+                                        "PaymentMethodDetail": [
+                                            "Other"
+                                        ]
+                                    }
+                                ],
+                                "IsPremiumOrder": [
+                                    "false"
+                                ],
+                                "EarliestShipDate": [
+                                    "2017-06-18T18:30:00Z"
+                                ],
+                                "MarketplaceId": [
+                                    "A21TJRUUN4KGV"
+                                ],
+                                "FulfillmentChannel": [
+                                    "MFN"
+                                ],
+                                "IsPrime": [
+                                    "false"
+                                ],
+                                "ShipmentServiceLevelCategory": [
+                                    "Standard"
+                                ]
+                            },
+                            {
+                                "LatestShipDate": [
+                                    "2017-06-20T18:29:59Z"
+                                ],
+                                "OrderType": [
+                                    "StandardOrder"
+                                ],
+                                "PurchaseDate": [
+                                    "2017-06-17T18:30:45Z"
+                                ],
+                                "PaymentExecutionDetail": [
+                                    {
+                                        "PaymentExecutionDetailItem": [
+                                            {
+                                                "PaymentMethod": [
+                                                    "COD"
+                                                ],
+                                                "Payment": [
+                                                    {
+                                                        "CurrencyCode": [
+                                                            "INR"
+                                                        ],
+                                                        "Amount": [
+                                                            "1127.00"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "BuyerEmail": [
+                                    "1y5t4zglnsxf1cm@marketplace.amazon.in"
+                                ],
+                                "AmazonOrderId": [
+                                    "171-1760340-7457143"
+                                ],
+                                "LastUpdateDate": [
+                                    "2017-06-17T19:01:00Z"
+                                ],
+                                "IsReplacementOrder": [
+                                    "false"
+                                ],
+                                "ShipServiceLevel": [
+                                    "Std IN EZ Local COD"
+                                ],
+                                "NumberOfItemsShipped": [
+                                    "0"
+                                ],
+                                "OrderStatus": [
+                                    "Unshipped"
+                                ],
+                                "SalesChannel": [
+                                    "Amazon.in"
+                                ],
+                                "ShippedByAmazonTFM": [
+                                    "false"
+                                ],
+                                "IsBusinessOrder": [
+                                    "false"
+                                ],
+                                "LatestDeliveryDate": [
+                                    "2017-06-23T18:29:59Z"
+                                ],
+                                "NumberOfItemsUnshipped": [
+                                    "3"
+                                ],
+                                "PaymentMethodDetails": [
+                                    {
+                                        "PaymentMethodDetail": [
+                                            "CashOnDelivery"
+                                        ]
+                                    }
+                                ],
+                                "BuyerName": [
+                                    "Saurabh Galgali"
+                                ],
+                                "EarliestDeliveryDate": [
+                                    "2017-06-21T18:30:00Z"
+                                ],
+                                "OrderTotal": [
+                                    {
+                                        "CurrencyCode": [
+                                            "INR"
+                                        ],
+                                        "Amount": [
+                                            "1127.00"
+                                        ]
+                                    }
+                                ],
+                                "IsPremiumOrder": [
+                                    "false"
+                                ],
+                                "EarliestShipDate": [
+                                    "2017-06-18T18:30:00Z"
+                                ],
+                                "MarketplaceId": [
+                                    "A21TJRUUN4KGV"
+                                ],
+                                "FulfillmentChannel": [
+                                    "MFN"
+                                ],
+                                "PaymentMethod": [
+                                    "COD"
+                                ],
+                                "ShippingAddress": [
+                                    {
+                                        "StateOrRegion": [
+                                            "MAHARASHTRA"
+                                        ],
+                                        "City": [
+                                            "PUNE"
+                                        ],
+                                        "Phone": [
+                                            "9822329246"
+                                        ],
+                                        "CountryCode": [
+                                            "IN"
+                                        ],
+                                        "PostalCode": [
+                                            "411043"
+                                        ],
+                                        "Name": [
+                                            "Saurabh Galgali"
+                                        ],
+                                        "AddressLine1": [
+                                            "Block 20 / B , Vikram Nagar"
+                                        ],
+                                        "AddressLine2": [
+                                            "Raksha Lekha Society, Dhankawadi"
+                                        ]
+                                    }
+                                ],
+                                "IsPrime": [
+                                    "false"
+                                ],
+                                "ShipmentServiceLevelCategory": [
+                                    "Standard"
+                                ]
+                            },
+                            {
+                                "LatestShipDate": [
+                                    "2017-06-20T18:29:59Z"
+                                ],
+                                "OrderType": [
+                                    "StandardOrder"
+                                ],
+                                "PurchaseDate": [
+                                    "2017-06-18T07:04:45Z"
+                                ],
+                                "BuyerEmail": [
+                                    "tjydswdysxcndj9@marketplace.amazon.in"
+                                ],
+                                "AmazonOrderId": [
+                                    "408-1641855-1694709"
+                                ],
+                                "LastUpdateDate": [
+                                    "2017-06-18T07:34:58Z"
+                                ],
+                                "IsReplacementOrder": [
+                                    "false"
+                                ],
+                                "ShipServiceLevel": [
+                                    "Std IN EZ Remote"
+                                ],
+                                "NumberOfItemsShipped": [
+                                    "0"
+                                ],
+                                "OrderStatus": [
+                                    "Unshipped"
+                                ],
+                                "SalesChannel": [
+                                    "Amazon.in"
+                                ],
+                                "ShippedByAmazonTFM": [
+                                    "false"
+                                ],
+                                "IsBusinessOrder": [
+                                    "false"
+                                ],
+                                "LatestDeliveryDate": [
+                                    "2017-07-01T18:29:59Z"
+                                ],
+                                "NumberOfItemsUnshipped": [
+                                    "1"
+                                ],
+                                "PaymentMethodDetails": [
+                                    {
+                                        "PaymentMethodDetail": [
+                                            "CreditCard"
+                                        ]
+                                    }
+                                ],
+                                "BuyerName": [
+                                    "Abhaysingh Bhadoriya"
+                                ],
+                                "EarliestDeliveryDate": [
+                                    "2017-06-29T18:30:00Z"
+                                ],
+                                "OrderTotal": [
+                                    {
+                                        "CurrencyCode": [
+                                            "INR"
+                                        ],
+                                        "Amount": [
+                                            "399.00"
+                                        ]
+                                    }
+                                ],
+                                "IsPremiumOrder": [
+                                    "false"
+                                ],
+                                "EarliestShipDate": [
+                                    "2017-06-18T18:30:00Z"
+                                ],
+                                "MarketplaceId": [
+                                    "A21TJRUUN4KGV"
+                                ],
+                                "FulfillmentChannel": [
+                                    "MFN"
+                                ],
+                                "PaymentMethod": [
+                                    "Other"
+                                ],
+                                "ShippingAddress": [
+                                    {
+                                        "StateOrRegion": [
+                                            "GUJARAT"
+                                        ],
+                                        "City": [
+                                            "AMBAJI"
+                                        ],
+                                        "Phone": [
+                                            "9824896176"
+                                        ],
+                                        "CountryCode": [
+                                            "IN"
+                                        ],
+                                        "PostalCode": [
+                                            "385110"
+                                        ],
+                                        "Name": [
+                                            "Mukesh Laxmansingh Sikarwar"
+                                        ],
+                                        "AddressLine1": [
+                                            "77,Maitri Ambey Society"
+                                        ],
+                                        "AddressLine2": [
+                                            "Behind Revaprabhu Sadan"
+                                        ]
+                                    }
+                                ],
+                                "IsPrime": [
+                                    "false"
+                                ],
+                                "ShipmentServiceLevelCategory": [
+                                    "Standard"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "CreatedBefore": [
+                    "2017-06-18T11:26:09Z"
+                ]
+            }
+        ],
+        "ResponseMetadata": [
+            {
+                "RequestId": [
+                    "c730bd01-6043-4c62-9ad1-9af4d8b4f669"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+/*
+* Field structure - defination for Orders
+* res:Object --> hasMore: Boolean, orderItems: [Object], nextPageUrl: String
+* orderItems: [Object] --> {
+  deliverByDate: "Date_String"
+dispatchAfterDate: "Date_String"
+dispatchByDate: "Date_String"
+dispatchServiceTier: "REGULAR / TYPE"
+fsn: "ID_String" !
+hold: "Boolean"
+listingId: "ID_String"
+orderDate: "Date_String"
+orderId: "ID_String"
+orderItemId: "ID_String"
+paymentType: "TYPE"
+priceComponents:"Object" --> {}
+quantity: "Number"
+services: "Object" --> {} #
+shipmentId: "ID_String"
+shipmentType: "Type"
+shippingPincode: "String"
+sku: "ID_String" !
+sla: "Number"
+stateDocuments: ["String"]
+status: "Type"
+subItems: ["Object"] --> {}
+title: "String"
+updatedAt: "Date_String"
+* }
+*/
+
+{
+    "hasMore": false,
+    "orderItems": [
+        {
+            "orderItemId": "1944853978084000",
+            "orderId": "OD109448539780840000",
+            "status": "READY_TO_DISPATCH",
+            "hold": false,
+            "orderDate": "2017-06-16T21:51:22+05:30",
+            "dispatchAfterDate": "2017-06-16T21:57:51+05:30",
+            "dispatchByDate": "2017-06-20T10:00:00+05:30",
+            "deliverByDate": "2017-06-20T22:00:00+05:30",
+            "updatedAt": "2017-06-16T21:53:01+05:30",
+            "sla": 3,
+            "quantity": 1,
+            "title": "Thread Craft Solid Men's V-neck White T-Shirt",
+            "listingId": "LSTTSHEHXNWQTZUAVFZURNIYF",
+            "fsn": "TSHEHXNWQTZUAVFZ",
+            "sku": "8000_WHITE_2XL",
+            "shippingPincode": "500037",
+            "dispatchServiceTier": "REGULAR",
+            "priceComponents": {
+                "sellingPrice": 649,
+                "customerPrice": 649,
+                "shippingCharge": 50,
+                "totalPrice": 699,
+                "flipkartDiscount": 0,
+                "subsidy": 0
+            },
+            "paymentType": "cod",
+            "stateDocuments": [
+                ""
+            ],
+            "subItems": [],
+            "shipmentId": "C-142524127",
+            "shipmentType": "NORMAL",
+            "services": []
+        }
+    ],
+    "nextPageUrl": "/orders/search/ewogICJzb3J0IiA6IHsKICAgICJmaWVsZCIgOiAicGlja3VwX2RhdGUiLAogICAgIm9yZGVyIiA6ICJhc2MiCiAgfSwKICAiZmlsdGVyIiA6IHsKICAgICJzZWxsZXJfaWQiIDogImQ1ZjE5MDRkMjk1MTQ3MDIiLAogICAgInN0YXRlcyIgOiBbICJ0b19kaXNwYXRjaCIsICJydHNfb21zX2RvbmUiLCAicGFja2VkIiwgImRlbGl2ZXJlZCIsICJydHNfb21zX2luX3Byb2dyZXNzIiwgInNoaXBwZWQiLCAibGFiZWxfY3JlYXRlZCIsICJjYW5jZWxsZWQiLCAicGF5bWVudF9hcHByb3ZlZCIsICJjb21wbGV0ZWQiIF0sCiAgICAib3JkZXJfaXRlbV9pZCIgOiBudWxsLAogICAgIm9yZGVyX2lkIiA6IG51bGwsCiAgICAic2t1IiA6IG51bGwsCiAgICAibGlzdGluZ19pZHMiIDogbnVsbCwKICAgICJzZXJ2aWNlX3Byb2ZpbGVzIiA6IFsgIk5PTl9GQkYiIF0sCiAgICAic2hpcG1lbnRfdHlwZXMiIDogbnVsbCwKICAgICJwaWNrdXBfdmVuZG9yX2NvZGVzIiA6IG51bGwsCiAgICAidmVuZG9yX2dyb3VwX2NvZGVzIiA6IG51bGwsCiAgICAib3JkZXJfZGF0ZSIgOiB7CiAgICAgICJmcm9tX2RhdGUiIDogIjIwMTctMDYtMTFUMDA6MDA6MDAuMDAwKzA1OjMwIiwKICAgICAgInRvX2RhdGUiIDogIjIwMTctMDYtMTdUMDA6MDA6MDAuMDAwKzA1OjMwIgogICAgfSwKICAgICJkaXNwYXRjaF9hZnRlcl9kYXRlIiA6IG51bGwsCiAgICAiZGlzcGF0Y2hfYnlfZGF0ZXMiIDogbnVsbCwKICAgICJtb2RpZmllZF9kYXRlIiA6IG51bGwsCiAgICAicHJvZHVjdF9pZCIgOiBudWxsLAogICAgInJ0ZF9kYXRlIiA6IG51bGwsCiAgICAiY29tcGxldGlvbl9kYXRlIiA6IG51bGwsCiAgICAicmVwbGFjZW1lbnQiIDogbnVsbCwKICAgICJtdWx0aXBsZV9xdWFudGl0eSIgOiBudWxsLAogICAgImZvcm1zX3JlcXVpcmVkIiA6IG51bGwsCiAgICAicGlja3VwX3JlYXR0ZW1wdHMiIDogbnVsbCwKICAgICJzdGF0ZV9ncm91cHMiIDogbnVsbCwKICAgICJ0cmFja2luZ19tb2RlcyIgOiBudWxsLAogICAgImRpc3BhdGNoX3NlcnZpY2VfdGllcnMiIDogbnVsbCwKICAgICJkaXNwYXRjaF9kYXRlIiA6IG51bGwKICB9LAogICJwYWdpbmF0aW9uIiA6IHsKICAgICJzdGFydGluZ19wYWdlIiA6IDIsCiAgICAicGFnZV9zaXplIiA6IDIwCiAgfSwKICAibXVsdGlfc29ydCIgOiBudWxsCn0/token"
+}

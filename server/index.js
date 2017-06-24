@@ -17,6 +17,7 @@ import authenticate from './authenticate';
 import { AmazonMwsClient, test } from '../amazon';
 import { GetServiceStatus, ListOrders } from '../amazon/orders';
 
+import { FlipkartClient } from '../flipkart';
 
 import { pubsub, subscriptionManager } from './subscriptions';
 
@@ -56,6 +57,8 @@ async function startServer() {
           throw new Error('Query too large.');
         }
 
+        console.log(req.context);
+
         return {
           schema,
           context: Object.assign({ user }, req.context),
@@ -70,12 +73,14 @@ async function startServer() {
     endpointURL: '/graphql',
   }));
 
-  app.use('/test', (req, res, next) => {
+
+  // Listing Orders from Amazon
+  app.use('/amazonlistorders', (req, res, next) => {
     const client = new AmazonMwsClient('AKIAJ3FBOQI6KYTSKS3A','LJ0gAX0dCzmgSBMxqUqrHPDlMJxrMidDXKRfuqDI','A2I5E2O93UZ69K', 'A21TJRUUN4KGV',{});
     // console.log(test.call({upload:false, path:'/somepath', },'action',{},'callback'));
     const listOrders = new ListOrders();
     listOrders.set('MarketplaceId', 'A21TJRUUN4KGV');
-    listOrders.set('CreatedAfter', new Date(2017,4,21));
+    listOrders.set('CreatedAfter', new Date(2017,5,17));
 
     client.invoke(listOrders, function(data) {
       if (data['ErrorResponse']) {
@@ -84,9 +89,25 @@ async function startServer() {
         console.log(JSON.stringify(data));
       }
 
-      console.log(data);
+      res.json(data);
     });
-    res.send('Nice');
+  });
+
+  app.use('/flipkartlistorders', (req, res, next) => {
+    const client = new FlipkartClient('19b53a1b213659877959ba2a903507b990806', '38fff05bfdf317fff8ba652ce79069609', {uri: 'orders/search', path: 'POST'});
+    client.call()
+    .then(response => {
+      res.json(JSON.parse(response));
+    })
+    .catch(error => {
+      console.log(error);
+      res.json(error);
+    });
+
+  });
+
+  app.use('/syncorder', (req, res, next) => {
+    res.send('Hello Prashant');
   });
 
 

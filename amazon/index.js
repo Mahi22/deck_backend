@@ -9,6 +9,7 @@ import xml2js from 'xml2js';
 * @param {String} accessKeyId     Id for your secret Access Key (required)
 * @param {String} secretAccessKey Secret Access Key provided by Amazon (required)
 * @param {String} merchantId      Aka SellerId, provided by Amazon (required)
+* @param {String} marketplaceId   provided by Amazon especially in Orders call (required)
 * @param {Object} options         Additional configuration options for this instance
 */
 
